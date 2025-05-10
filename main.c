@@ -1,4 +1,4 @@
-﻿#include <stdio.h>
+#include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
@@ -6,6 +6,9 @@
 
 struct stat stat1, stat2;
 struct tm *time1, *time2;
+
+char *file1 = "text1";
+char *file2 = "text2";
 
 void filestat1();
 void filestat2();
@@ -47,22 +50,61 @@ void filetime2(){
     
 }
 
-//두 개의 파일 크기를 비교하는 함수 작성
 void sizecmp(){
-    
+    printf("size compare\n");
+    if (stat1.st_size > stat2.st_size){
+        printf("%s is bigger\n", file1);
+    }
+    else if (stat1.st_size < stat2.st_size) {
+        printf("%s is bigger\n", file2);
+    }
+    else {
+        printf("sizes are equal\n");
+    }
+    printf("\n");
 }
 
-//두 개의 파일 블락 수를 비교하는 함수 작성
+
 void blockcmp(){
-    
+    printf("block compare\n");
+    if (stat1.st_blocks > stat2.st_blocks){
+        printf("%s is bigger\n", file1);
+    }
+    else if (stat1.st_blocks < stat2.st_blocks) {
+        printf("%s is bigger\n", file2);
+    }
+    else{
+        printf("sizes are equal\n");
+    }
+    printf("\n");
 }
 
-//두 개의 파일 수정 날짜를 비교하는 함수 작성
+
 void datecmp(){
-    
+    printf("date compare\n");
+    if ((time1->tm_year < time2->tm_year) || (time1->tm_year == time2->tm_year && time1->tm_mon < time2->tm_mon) || (time1->tm_year == time2->tm_year && time1->tm_mon == time2->tm_mon && time1->tm_mday < time2->tm_mday)) {
+        printf("%s is early\n", file1);
+    }
+    else if ((time1->tm_year > time2->tm_year) || (time1->tm_year == time2->tm_year && time1->tm_mon > time2->tm_mon) || (time1->tm_year == time2->tm_year && time1->tm_mon == time2->tm_mon && time1->tm_mday > time2->tm_mday)){
+        printf("%s is early\n", file2);
+    }
+    else {
+        printf("same time\n");
+    }
+    printf("\n");
 }
 
-//두 개의 파일 수정 시간을 비교하는 함수 작성
+
 void timecmp(){
-    
+    printf("time compare\n");
+    if (stat1.st_mtime < stat2.st_mtime) {
+        printf("%s is early\n", file1);
+    }
+    else if (stat1.st_mtime > stat2.st_mtime) {
+        printf("%s is early\n", file2);
+    }
+    else {
+        printf("same time\n");
+    }
+    printf("\n");
 }
