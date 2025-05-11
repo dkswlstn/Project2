@@ -32,22 +32,30 @@ int main(){
 
 //파일 1의 정보를 가져오는 함수 작성
 void filestat1(){
-    
+    //stat() 함수로 첫번째 파일의 메타데이터를 가져오기
+    if(stat(file1, &stat1) == -1) {
+        perror("Error reading text1");
+        return;
+    }
 }
 
 //파일 2의 정보를 가져오는 함수 작성
 void filestat2(){
-    
+    //stat() 함수로 두번째 파일의 메타데이터 가져오기
+    if(stat(file2, &stat2) == -1) {
+        perror("Error reading text2");
+        return;
+    }
 }
 
 //파일 1의 시간 정보를 가져오는 함수 작성
 void filetime1(){
-    
+    time1 = localtime(&stat1.st_mtime);
 }
 
 //파일 2의 시간 정보를 가져오는 함수 작성
 void filetime2(){
-    
+    time2 = localtime(&stat2.st_mtime);
 }
 
 void sizecmp(){
