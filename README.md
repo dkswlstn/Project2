@@ -44,7 +44,7 @@
 
 *** 
 
-# 고찰
+## 고찰
 
 프로젝트를 바탕으로 github를 통한 공동 개발 기능들인 pull-request, issue, milestone등에 대한 이해를 높이고 응용할 수 있게 되었다. 
 github에 코드를 commit한 후 pull-request를 통한 merge 진행 과정이 생소해 프로젝트 초기에는 헷갈렸지만 점차 진행하면서 pull-request 및 issue 기능을 활용한 팀원 간의 커뮤니케이션에 익숙해졌다. 
